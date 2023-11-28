@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +36,7 @@
       max-width:100%;
       overflow-x:auto;}
     .slide li{
-      float:center;}
+      float:right;}
     .slide ul, .slide li {
       list-style:none;
       display:inline-block;
@@ -115,16 +115,7 @@
       border: 2px solid #008CBA;
     }
 
-    .buttons2:hover {
-      background-image: url(/bahan/bg2.jpg);
-      color: white;
-    }
 
-
-    @font-face {
-      src: url(font/Prototype.ttf);
-      font-family: 'Prototype';
-    }
     body{ margin: 0px; }
     .box{
       display: flex;
@@ -220,7 +211,6 @@
       width: 100%;
       height: 330px;
       margin-top: -150px;
-      background-image: url(bahan/bg.png);
       align-items: center;}
     .isi1{
       display: flex;
@@ -310,7 +300,6 @@
       width: 100%;
       height: 200px;
       margin-top: -10px;
-      background-image: url(bahan/bg2.jpg);
       align-items: center;}
     .bg2{
       display: flex;
@@ -367,13 +356,13 @@
       margin-top: 10px;
       width: 300px;
       height: 300px;
-      background-image: url(bahan/bg2.jpg);}
+     }
     .isibox6-1 h1{
       color: #BBDEFB;
       margin-top: -20px;
       font-size: 110px;
       font-family: 'Prototype';
-      margin-left: px;
+      margin-left:0px;
       opacity: 0.2; }
     .isibox6-1 h2{
       font-family: 'Prototype';
@@ -407,7 +396,6 @@
       display: flex;
       justify-content: center; }
     .workbg{
-      background-image: url(bahan/workbg.jpg);
       background-size: 1400px;
       margin-top: 50px;
       width: 100%;
@@ -566,7 +554,6 @@
       margin-top: -120px;
       width: 350px;
       height:230px;
-      background-image: url(bahan/bg2.jpg);
     }
     .boxdalamskil2 h1{
       margin-top: 50px;
@@ -584,7 +571,7 @@
       margin-top: -200px;
       width: 100%;
       height: 210px;
-      background-image: url(bahan/footer2.png);
+
     }
     .akhir{
       display: flex;
