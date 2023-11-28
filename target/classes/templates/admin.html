@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +7,8 @@
   <title>Welcome</title>
   <style>
 
-    .textslide {
-      margin-top: -24px;
-      background-color: aliceblue;
-      width: 100%;
-      height: 530px;
 
-    }
+
     .textslide h1{
       width: 300px;
       padding: 70px;
@@ -28,15 +23,13 @@
       font-family: fantasy;
       color: #FF6D00;
     }
-    .slide{
-      margin-top: 40px;
-    }
+
     .slide ul{
       margin-top: 100px;
       max-width:100%;
       overflow-x:auto;}
     .slide li{
-      float:center;}
+      float:right;}
     .slide ul, .slide li {
       list-style:none;
       display:inline-block;
@@ -65,67 +58,13 @@
       background-color: #455A64;
       box-shadow: 0 5px #666;
       transform: translateY(4px);}
-    .button1 {
-      margin-top: 35px;
-      height: 50px;
-      margin-left: -10px;
-      padding: 2px 25px;
-      font-size: 17px;
-      cursor: pointer;
-      text-decoration: none;
-      color: #fff;
-      background-color: #607D8B;
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 9px #999;}
-    .button1:hover {background-color: #8B4513}
-    .button1:active {
-      background-color: #000000;
-      box-shadow: 0 5px #666;
-      transform: translateY(4px);}
 
 
-    .buttons {
-      border: none;
-      color: white;
-      padding: 16px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
-    .buttons1 {
-      margin-left: 132px;
-      background-color: white;
-      color: black;
-      border: 2px solid #4CAF50;
-    }
-
-    .buttons1:hover {
-      background: radial-gradient(circle at top left, #fdbb2d, #07a3b2);
-      color: white;
-    }
-    .buttons2 {
-      margin-left: 132px;
-      background-color: white;
-      color: black;
-      border: 2px solid #008CBA;
-    }
-
-    .buttons2:hover {
-      background-image: url(/bahan/bg2.jpg);
-      color: white;
-    }
 
 
-    @font-face {
-      src: url(font/Prototype.ttf);
-      font-family: 'Prototype';
-    }
-    body{ margin: 0px; }
+
+
+    body{ margin: 0; }
     .box{
       display: flex;
       justify-content: space-between;
@@ -220,7 +159,6 @@
       width: 100%;
       height: 330px;
       margin-top: -150px;
-      background-image: url(bahan/bg.png);
       align-items: center;}
     .isi1{
       display: flex;
@@ -310,7 +248,6 @@
       width: 100%;
       height: 200px;
       margin-top: -10px;
-      background-image: url(bahan/bg2.jpg);
       align-items: center;}
     .bg2{
       display: flex;
@@ -367,13 +304,13 @@
       margin-top: 10px;
       width: 300px;
       height: 300px;
-      background-image: url(bahan/bg2.jpg);}
+     }
     .isibox6-1 h1{
       color: #BBDEFB;
       margin-top: -20px;
       font-size: 110px;
       font-family: 'Prototype';
-      margin-left: px;
+      margin-left:0px;
       opacity: 0.2; }
     .isibox6-1 h2{
       font-family: 'Prototype';
@@ -407,7 +344,6 @@
       display: flex;
       justify-content: center; }
     .workbg{
-      background-image: url(bahan/workbg.jpg);
       background-size: 1400px;
       margin-top: 50px;
       width: 100%;
@@ -566,7 +502,6 @@
       margin-top: -120px;
       width: 350px;
       height:230px;
-      background-image: url(bahan/bg2.jpg);
     }
     .boxdalamskil2 h1{
       margin-top: 50px;
@@ -584,7 +519,7 @@
       margin-top: -200px;
       width: 100%;
       height: 210px;
-      background-image: url(bahan/footer2.png);
+
     }
     .akhir{
       display: flex;
