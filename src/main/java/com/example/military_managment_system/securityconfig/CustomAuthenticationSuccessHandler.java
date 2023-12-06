@@ -18,11 +18,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response
             , Authentication authentication) throws IOException, ServletException {
-
-//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-//        boolean isAdmin= authorities.stream()
-//                .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"));
-
         HttpSession session = request.getSession();
         String email = authentication.getName();
         if (email.contains("admin123")) {

@@ -2,18 +2,19 @@ package com.example.military_managment_system.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Soldier {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long regNo;
+    private String nationalId;
     private String firstName;
     private String lastName;
     private String Rank;
+    private String Nationality;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dob;
     private String gender;
@@ -22,7 +23,7 @@ public class Soldier {
     public Soldier() {
     }
 
-    public Soldier(Long regNo, String firstName, String lastName, String rank, Date dob, String gender, String email) {
+    public Soldier(Long regNo,String nationality, String firstName, String lastName, String rank, Date dob, String gender, String email ,String nationalId) {
         this.regNo = regNo;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,6 +31,8 @@ public class Soldier {
         this.dob = dob;
         this.email = email;
         this.gender = gender;
+        this.nationalId=nationalId;
+        this.nationalId=nationalId;
 
     }
 
@@ -91,6 +94,21 @@ public class Soldier {
         this.gender = gender;
     }
 
+    public String getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(String nationalId) {
+        this.nationalId = nationalId;
+    }
+
+    public String getNationality() {
+        return Nationality;
+    }
+
+    public void setNationality(String nationality) {
+        Nationality = nationality;
+    }
 }
 
 

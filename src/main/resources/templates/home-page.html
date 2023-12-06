@@ -120,13 +120,19 @@
     <thead class="table-dark">
     <tr>
       <td>Reg No</td>
+        <td th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}"> National ID</td>
       <td>
           <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">Soldier FirstName</a>
       </td>
       <td>
           <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">Soldier FirstName</a>
       </td>
-        <td> National ID
+        <td>
+            <a th:href="@{'/page/' + ${currentPage} + '?sortField=gender&sortDir=' + ${reverseSortDir}}">Nationality</a>
+        </td>
+
+        <td>
+            <a th:href="@{'/page/' + ${currentPage} + '?sortField=gender&sortDir=' + ${reverseSortDir}}">Soldier Rank</a>
         </td>
         <td>
             <a th:href="@{'/page/' + ${currentPage} + '?sortField=gender&sortDir=' + ${reverseSortDir}}">Soldier gender</a>
@@ -144,12 +150,14 @@
     <tbody class="even-row">
     <tr th:each="homedata: ${listStudents}">
      <td th:text="${homedata.regNo}"></td>
-      <td th:text="${homedata.firstName}"></td>
-      <td th:text="${homedata.lastName}"></td>
+        <td th:text="${homedata.nationalId}"></td>
+       <td th:text="${homedata.firstName}"></td>
+       <td th:text="${homedata.lastName}"></td>
+        <td th:text="${homedata.nationality}"></td>
         <td th:text="${homedata.rank}"></td>
-      <td th:text="${homedata.gender}"></td>
-        <td th:text="${#dates.format(homedata.dob, 'yyyy-MM-dd')}"></td>
+        <td th:text="${homedata.gender}"></td>
         <td th:text="${homedata.email}"></td>
+        <td th:text="${#dates.format(homedata.dob, 'yyyy-MM-dd')}"></td>
         </td>
         <td>
             <a onclick="return updateconfirmAction()" th:href="@{/home/edit/{studentID}(studentID=${homedata.regNo})}" class="btn" style="background-color: rgb(0,0,255,0.5);color: white"> update</a>

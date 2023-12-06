@@ -122,6 +122,8 @@ public class SoldierController {
         if (exitingSoldier!=null) {
 
             exitingSoldier.setRegNo(soldier.getRegNo());
+            exitingSoldier.setNationalId(soldier.getNationalId());
+            exitingSoldier.setNationality(soldier.getNationality());
 
             exitingSoldier.setFirstName(soldier.getFirstName());
 

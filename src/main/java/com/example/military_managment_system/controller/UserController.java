@@ -1,6 +1,7 @@
 package com.example.military_managment_system.controller;
 
 import com.example.military_managment_system.DataTransferObject.UserRegistartionDto;
+import com.example.military_managment_system.model.User;
 import com.example.military_managment_system.service.UserInterface;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +28,12 @@ public class UserController {
     public UserRegistartionDto userRegistartionDto(){
         return new UserRegistartionDto();
     }
-   @PostMapping
+    @PostMapping
     public String registerUserAccount(@ModelAttribute("user")UserRegistartionDto dto){
+        User foundUser=userInterface.findByEmail(dto.getEmail());
+        if (foundUser!=null &&  (foundUser.getEmail().equalsIgnoreCase(dto.getEmail()))) {
+               return "redirect:/registration?error";   
+        }
         userInterface.saveAccount(dto);
         return "redirect:/registration?success";
     }

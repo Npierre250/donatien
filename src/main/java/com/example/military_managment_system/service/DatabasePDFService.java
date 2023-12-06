@@ -29,14 +29,15 @@ public class DatabasePDFService {
             document.open();
 
             Font fontHeader = FontFactory.getFont(FontFactory.TIMES_BOLD, 22);
-            Paragraph para = new Paragraph("Volunteer Structure", fontHeader);
+            Paragraph para = new Paragraph("Military Structure", fontHeader);
             para.setAlignment(Element.ALIGN_CENTER);
             document.add(para);
             document.add(Chunk.NEWLINE);
 
-            PdfPTable table = new PdfPTable(6);
+            PdfPTable table = new PdfPTable(9);
 
-            Stream.of("REGISTRATION_NO",  "FIRST_NAME", "LAST_NAME", "EMAIL","PHONE").forEach(headerTitle -> {
+            Stream.of("REGISTRATION_NO", "NATIONAL_ID", "FIRST_NAME", "LAST_NAME","NATIONALITY"
+                    ,"SOLDIER_RANK", "GENDER","EMAIL","DATE_OF_BIRTH").forEach(headerTitle -> {
                 PdfPCell header = new PdfPCell();
                 Font headFont = FontFactory.getFont(FontFactory.TIMES_BOLD);
                 header.setBackgroundColor(Color.CYAN);
@@ -53,6 +54,12 @@ public class DatabasePDFService {
                 idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(idCell);
 
+                PdfPCell nationalIdCell = new PdfPCell(new Phrase(String.valueOf(soldier.getNationalId())));
+                nationalIdCell.setPaddingLeft(4);
+                nationalIdCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                nationalIdCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(nationalIdCell);
+
                 PdfPCell firstNameCell = new PdfPCell(new Phrase(soldier.getFirstName()));
                 firstNameCell.setPaddingLeft(4);
                 firstNameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -65,31 +72,37 @@ public class DatabasePDFService {
                 lastNameCell.setPaddingRight(4);
                 table.addCell(lastNameCell);
 
+
+                PdfPCell countryCell = new PdfPCell(new Phrase(String.valueOf(soldier.getNationality())));
+                countryCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                countryCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                countryCell.setPaddingRight(4);
+                table.addCell(countryCell);
+
+                PdfPCell rank = new PdfPCell(new Phrase(String.valueOf(soldier.getRank())));
+                rank.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                rank.setHorizontalAlignment(Element.ALIGN_CENTER);
+                rank.setPaddingRight(4);
+                table.addCell(rank);
+
+                PdfPCell genderCell = new PdfPCell(new Phrase(String.valueOf(soldier.getGender())));
+                genderCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                genderCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                genderCell.setPaddingRight(4);
+                table.addCell(genderCell);
+
+
+                PdfPCell emailCell = new PdfPCell(new Phrase(String.valueOf(soldier.getEmail())));
+                emailCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                emailCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                emailCell.setPaddingRight(4);
+                table.addCell(emailCell);
+
                 PdfPCell deptCell = new PdfPCell(new Phrase(String.valueOf(soldier.getDob().toString())));
                 deptCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 deptCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 deptCell.setPaddingRight(4);
                 table.addCell(deptCell);
-
-
-                PdfPCell phoneNumCell = new PdfPCell(new Phrase(String.valueOf(soldier.getGender())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                table.addCell(phoneNumCell);
-
-                PdfPCell rank = new PdfPCell(new Phrase(String.valueOf(soldier.getRank())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                table.addCell(rank);
-
-                PdfPCell email = new PdfPCell(new Phrase(String.valueOf(soldier.getEmail())));
-                phoneNumCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                phoneNumCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                phoneNumCell.setPaddingRight(4);
-                table.addCell(email);
-
 
             }
             document.add(table);
